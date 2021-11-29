@@ -187,63 +187,42 @@ int no, menu;
 back:
 system("cls");
 
-printf ("------------------------------------------------------------------------------------------------------\n");
-printf ("============================ DAFTAR FROZEN FOOD DAN HARGA ==============================\n");
-printf ("------------------------------------------------------------------------------------------------------\n\n");
-printf ("\n 1. Bakso Ayam / Ikan / Sapi \n");
-printf ("\n 2. Nugget Ayam / Ikan \n "); 			   	
-printf ("\n 3. Dumpling	Ayam / Keju \n ");    	
-printf ("\n 4. Sosis  \n");    
-printf ("\n 5. Siomay \n");	 
-printf ("\n 6. Kentang \n");
-printf ("\n 7. Kembali ke menu utama \n");	 			
-printf("\n Masukkan nomor menu: ");
-scanf("%d", &no);
-switch(no)
-{
-	case 1:
-		printf("\n 250 gr = Rp 20.000 \n 500 gr = Rp 35.000 \n");
-		printf("Tekan ENTER untuk kembali ke menu ");
-		getch();
-		goto back;
-	break;
-	case 2:
-		printf("\n 250 gr = Rp 25.000 \n 500 gr = Rp 45.000 \n");
-		printf("Tekan ENTER untuk kembali ke menu  ");
-		getch();
-		goto back;
-	break;
-	case 3:
-		printf("\n 250 gr = Rp 22.000 \n 500 gr = Rp 38.000 \n");
-		printf("Tekan ENTER untuk kembali ke menu utama ");
-		getch();
-		goto back;
-	break;
-	case 4:
-		printf("\n 250 gr = Rp 20.000 \n 500 gr = Rp 35.000 \n");
-		printf("Tekan ENTER untuk kembali ke menu utama ");
-		getch();
-		goto back;
-	break;
-	case 5:
-		printf("\n 250 gr = Rp 17.000 \n 500 gr = Rp 30.000 \n");
-		printf("Tekan ENTER untuk kembali ke menu utama ");
-		getch();
-		goto back;
-	break;
-	case 6:
-		printf("\n 500 gr = Rp 22.000 \n 1000 gr = Rp 38.000 \n");
-		printf("Tekan ENTER untuk kembali ke menu utama ");
-		getch();
-		goto back;
-	break;
-	case 7:
+printf ("-------------------------------------------------------------------------------------------------------\n");
+	printf ("=================================      DAFTAR FROZEN FOOD DAN HARGA     ===============================\n");
+	printf ("-------------------------------------------------------------------------------------------------------\n\n");
+	printf ("\n1. Bakso Ayam / Ikan / Sapi \n");
+	printf ("250 gr = Rp 20.000 \n");
+	printf ("500 gr = Rp 35.000 \n");
+	printf ("\n2. Nugget Ayam / Ikan \n"); 
+	printf ("250 gr = Rp 25.000 \n");
+	printf ("500 gr = Rp 45.000 \n");			   	
+	printf ("\n3. Dumpling Ayam / Keju \n");   
+	printf ("250 gr = Rp 22.000 \n");
+	printf ("500 gr = Rp 38.000 \n");	
+	printf ("\n4. Sosis  \n");    
+	printf ("250 gr = Rp 20.000\n");
+	printf ("500 gr = Rp 35.000 \n");
+	printf ("\n5. Siomay \n");	 
+	printf ("250 gr = Rp 17.000\n");
+	printf ("500 gr = Rp 30.000\n");
+	printf ("\n6. Kentang \n");
+	printf ("500 gr  = Rp 22.000\n"); 
+	printf ("1000 gr = Rp 38.000\n");	 	
+			
+	printf ("\nIngin kembali ke menu awal? (jika ya tekan 1) : ");
+	
+	scanf("%d", &no);
+	
+	if (no == 1)
+	{
 		main();
-	default:
-		printf("\n Input salah, tekan ENTER untuk kembali ke menu  ");
+	}
+	else
+	{
+		printf("\nInput salah, tekan ENTER untuk kembali ke menu  ");
 		getch();
 		goto back;
-   }
+	}
 }
 
 
