@@ -27,24 +27,23 @@ void main()
     int no, n, jumlahbarang, hargabarang, pilih;
      do
  {
- 	 menu:
-  system("cls");
-        printf ("===============================================================================================\n");
-  printf ("===============================  PROGRAM DISTIRBUSI  FROZEN FOOD   ===========================\n");
-  printf ("================================  DARI PABRIK PT. ANUGRAH FROZEN  =============================\n");
-  printf ("===============================================================================================\n");
-  printf ("MENU :\n");
+ 	menu:
+    system("cls");
+  
+    printf ("===============================  PROGRAM DISTIRBUSI  FROZEN FOOD   ===========================\n");
+    printf ("================================  DARI PABRIK PT. ANUGRAH FROZEN  =============================\n");
+    printf ("MENU :\n");
   			
-        printf ("1. Daftar produk\n");
-        //mungkin kuubah pakai searching dan sorting 
-        printf ("2. Input Data Pendistribusian\n");
-        //isi fungsi file mungkin
-        printf ("3. Tampilkan Data Pendistribusian\n");
-        printf ("4. Kirim Frozen Food\n");
-        //rute pendistribusian sc graph minggu lalu?
-        //mungkin ada fixed route dn new route
-        printf ("5. Keluar Program\n");
-        printf ("\nMasukkan pilihan anda : ");
+    printf ("1. Daftar produk\n");
+    //mungkin kuubah pakai searching dan sorting 
+    printf ("2. Input Data Pendistribusian\n");
+    //isi fungsi file mungkin
+    printf ("3. Tampilkan Data Pendistribusian\n");
+    printf ("4. Kirim Frozen Food\n");
+    //rute pendistribusian sc graph minggu lalu?
+    //mungkin ada fixed route dn new route
+    printf ("5. Keluar Program\n");
+    printf ("\nMasukkan pilihan anda : ");
         scanf("%d", &pilih);
         switch(pilih)
         {
