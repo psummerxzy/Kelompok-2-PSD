@@ -69,8 +69,11 @@ void main()
    scanf  ("%d" , &hargabarang);
    fflush(stdin);
    printf ("5. Tujuan Distibusi   : ");
-   gets(tujuan);         
-   TambahPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan);
+   gets(tujuan);
+   printf ("6. Kode Frozen Food	  : "):
+   scanf  ("%d" , &no);
+    fflush(stdin);
+   TambahPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, Kodebarang);
             printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
             getch();
    break;
@@ -97,7 +100,7 @@ void main()
    }
    else
    {
-    KirimPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan);
+    KirimPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, Kodebarang);
     printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
    }
    getch();
@@ -116,7 +119,7 @@ void main()
     }while(pilih != 5);
 }
 
-void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[])
+void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], int kodebarang)
 {
     struct distribute *ptr,  *temp = head;
     ptr = (struct distribute *)malloc(sizeof(struct distribute));
@@ -125,6 +128,7 @@ void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang,
     ptr->jumlahbarang = jumlahbarang;
     ptr->hargabarang = hargabarang;
     strcpy (ptr->tujuan, tujuan);
+    ptr ->kodebarang = kodebarang);
    
     ptr->next = NULL;
     ptr->prev = NULL;
@@ -153,15 +157,16 @@ void LihatPesanan()
   printf ("1. Nomor Pesanan      : %d\n" , temp->no);
   printf ("2. Nama Frozen Food   : %s\n" , temp->namabarang);
   printf ("3. Jumlah Frozen Food : %d pcs\n" , temp->jumlahbarang);
-  printf ("4. Harga Froxen Food  : Rp.%d\n" , temp->hargabarang);
+  printf ("4. Harga Frozen Food  : Rp.%d\n" , temp->hargabarang);
   printf ("5. Tujuan Distribusi  : %s\n" , temp->tujuan);
+  printf ("6. Kode Frozen Food   : %d\n" , temp->kodebarang);
   printf ("\n");
         temp = temp->next;
     }
     printf ("---------------------------------------------------------------------------------");
 }
 
-void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[])
+void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan, int kode[])
 {
  struct distribute *temp, *p;
     if (head-> no == no)
@@ -170,11 +175,12 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
         head = head->next;
         printf ("\n");
         printf ("Pesanan dengan data sebagai berikut berhasil didistribusikan!! :)\n");
-     printf ("1. Nomor Pesanan      : %d\n" , no);
+  printf ("1. Nomor Pesanan      : %d\n" , no);
   printf ("2. Nama Frozen Food   : %s\n" , namabarang);
   printf ("3. Jumlah Frozen Food : %d pcs\n" , jumlahbarang);
   printf ("4. Harga Froxen Food  : Rp.%d\n" , hargabarang);
   printf ("5. Tujuan Distribusi  : %s\n" , tujuan);
+  printf ("6. Kode Frozen Food   : %d\n" , kodebarang);
   printf ("\n");
         free(temp);
     }
@@ -183,7 +189,7 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
 
 void displaymenu()
 {
-int no, menu;
+int no,  kode, menu;
 back:
 system("cls");
 
@@ -191,23 +197,23 @@ system("cls");
 	printf ("=================================      DAFTAR FROZEN FOOD DAN HARGA     ===============================\n");
 	printf ("-------------------------------------------------------------------------------------------------------\n\n");
 	printf ("\n1. Bakso Ayam / Ikan / Sapi \n");
-	printf ("250 gr = Rp 20.000 \n");
-	printf ("500 gr = Rp 35.000 \n");
+	printf ("111. 250 gr = Rp 20.000 \n");
+	printf ("112. 500 gr = Rp 35.000 \n");
 	printf ("\n2. Nugget Ayam / Ikan \n"); 
-	printf ("250 gr = Rp 25.000 \n");
-	printf ("500 gr = Rp 45.000 \n");			   	
+	printf ("221. 250 gr = Rp 25.000 \n");
+	printf ("222. 500 gr = Rp 45.000 \n");			   	
 	printf ("\n3. Dumpling Ayam / Keju \n");   
-	printf ("250 gr = Rp 22.000 \n");
-	printf ("500 gr = Rp 38.000 \n");	
+	printf ("331. 250 gr = Rp 22.000 \n");
+	printf ("332. 500 gr = Rp 38.000 \n");	
 	printf ("\n4. Sosis  \n");    
-	printf ("250 gr = Rp 20.000\n");
-	printf ("500 gr = Rp 35.000 \n");
+	printf ("441. 250 gr = Rp 20.000\n");
+	printf ("442. 500 gr = Rp 35.000 \n");
 	printf ("\n5. Siomay \n");	 
-	printf ("250 gr = Rp 17.000\n");
-	printf ("500 gr = Rp 30.000\n");
+	printf ("551. 250 gr = Rp 17.000\n");
+	printf ("552. 500 gr = Rp 30.000\n");
 	printf ("\n6. Kentang \n");
-	printf ("500 gr  = Rp 22.000\n"); 
-	printf ("1000 gr = Rp 38.000\n");	 	
+	printf ("661. 500 gr  = Rp 22.000\n"); 
+	printf ("662. 1000 gr = Rp 38.000\n");	 	
 			
 	printf ("\nIngin kembali ke menu awal? (jika ya tekan 1) : ");
 	
