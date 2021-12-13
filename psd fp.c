@@ -181,7 +181,7 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
   printf ("1. Nomor Pesanan      : %d\n" , no);
   printf ("2. Nama Frozen Food   : %s\n" , namabarang);
   printf ("3. Jumlah Frozen Food : %d pcs\n" , jumlahbarang);
-  printf ("4. Harga Froxen Food  : Rp.%d\n" , hargabarang);
+  printf ("4. Harga Frozen Food  : Rp.%d\n" , hargabarang);
   printf ("5. Tujuan Distribusi  : %s\n" , tujuan);
   printf ("6. Kode Frozen Food   : %d\n" , kodebarang);
   printf ("\n");
