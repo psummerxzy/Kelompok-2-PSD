@@ -108,7 +108,7 @@ void main()
    getch();
             break; 
         case 5 :
-   printf ("\n=====================  PENDISTRIBUSIAN BERAS PT. ALAM SURYA TELAH SELESAI  ====================\n");
+   printf ("\n=====================  PENDISTRIBUSIAN FROZEN FOOD PT. ANUGRAH FROZEN TELAH SELESAI  ====================\n");
    exit(1);
    break;
   default :
