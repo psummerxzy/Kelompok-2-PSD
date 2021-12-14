@@ -114,7 +114,7 @@ void main()
   default :
    printf ("\n");
    printf ("*******  Maaf, pilihan yang anda masukan salah  *******\n");
-   printf ("\n************  Tekan enter untuk mengulang  *************\n");
+   printf ("\n**********  Tekan enter untuk mengulang  **********\n");
    getch();
    break;
         }
