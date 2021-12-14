@@ -83,7 +83,7 @@ void main()
             if(head == NULL)
    {
     printf ("\n");
-    printf ("*******Maaf, belum ada data distribusi frozen food!!*******\n");
+    printf ("******* Maaf, belum ada data distribusi frozen food!!*******\n");
     printf ("\n************  Tekan enter untuk melanjutkan  ************\n");
    }
    else
@@ -97,7 +97,7 @@ void main()
    if(head == NULL)
    {
     printf ("\n");
-    printf ("*******Maaf, belum ada data distribusi frozen food!!*******\n");
+    printf ("******* Maaf, belum ada data distribusi frozen food!!*******\n");
     printf ("\n************  Tekan enter untuk melanjutkan  ************\n");
    }
    else
@@ -130,7 +130,7 @@ void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang,
     ptr->jumlahbarang = jumlahbarang;
     ptr->hargabarang = hargabarang;
     strcpy (ptr->tujuan, tujuan);
-    strcpy(ptr->kodebarang, kodebarang);
+    strcpy (ptr->kodebarang, kodebarang);
     ptr->next = NULL;
     ptr->prev = NULL;
 
