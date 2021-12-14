@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
+#include <time.h>
+
+
+time_t rawtime;
+struct tm * timeinfo;
 
 struct distribute
 {
@@ -13,6 +18,7 @@ struct distribute
 
 struct distribute *head = NULL;
 
+ 
 void TambahPesanan(int, char [], int, int, char[], char[]);
 void LihatPesanan();
 void KirimPesanan(int, char [], int , int , char [], char[]);
@@ -24,24 +30,22 @@ void main()
 {
  system("cls");
     char namabarang[100], tujuan[100], kodebarang[50];
-    int no, n, jumlahbarang, hargabarang, pilih;
+    int no, n, jumlahbarang, hargabarang, totalharga, pilih;
      do
  	{
  	menu:
+ 	time ( &rawtime );
+	timeinfo = localtime ( &rawtime );
     system("cls");
-  
+    system("color 03");
     printf ("===============================  PROGRAM DISTIRBUSI  FROZEN FOOD   ===========================\n");
     printf ("================================  DARI PABRIK PT. ANUGRAH FROZEN  =============================\n");
     printf ("MENU :\n");
   			
     printf ("1. Daftar produk\n");
-    //mungkin kuubah pakai searching dan sorting 
     printf ("2. Input Data Pendistribusian\n");
-    //isi fungsi file mungkin
     printf ("3. Tampilkan Data Pendistribusian\n");
     printf ("4. Kirim Frozen Food\n");
-    //rute pendistribusian sc graph minggu lalu?
-    //mungkin ada fixed route dn new route
     printf ("5. Keluar Program\n");
     printf ("\nMasukkan pilihan anda : ");
         scanf("%d", &pilih);
@@ -163,6 +167,7 @@ void LihatPesanan()
   printf ("4. Harga Frozen Food  : Rp.%d\n" , temp->hargabarang);
   printf ("5. Tujuan Distribusi  : %s\n" , temp->tujuan);
   printf ("6. Kode Frozen Food   : %s\n" , temp->kodebarang);
+  printf ("7. Waktu Pembelian    : %s", asctime (timeinfo));
   printf ("\n");
         temp = temp->next;
  }
@@ -183,6 +188,7 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
   	printf ("4. Harga Frozen Food  : Rp.%d\n" , temp->hargabarang);
   	printf ("5. Tujuan Distribusi  : %s\n" , temp->tujuan);
   	printf ("6. Kode Frozen Food   : %s\n" , temp->kodebarang);
+  	printf ("7. Waktu Pembelian    : %s", asctime (timeinfo));
   	printf ("\n");
 	pesanan = fopen("HistoryPesanan.txt" , "a");
 	fprintf (pesanan, "------------------------------------------\n");
@@ -192,6 +198,7 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
 	fprintf (pesanan, "4. Harga Frozen Food  : Rp.%d\n" , hargabarang);
 	fprintf (pesanan, "5. Tujuan Distribusi  : %s\n" , tujuan);
 	fprintf (pesanan, "6. Kode Frozen Food   : %s\n" , kodebarang);
+	fprintf(pesanan,  "7. Waktu Pembelian    : %s", asctime (timeinfo));
 	fprintf (pesanan, "\n");
         free(temp);
 }
@@ -224,20 +231,10 @@ system("cls");
 	printf ("500 gr  = Rp 22.000\n"); 
 	printf ("1000 gr = Rp 38.000\n");	 	
 			
-	printf ("\nIngin kembali ke menu awal? (jika ya tekan 1) : ");
-	
-	scanf("%d", &no);
-	
-	if (no == 1)
-	{
-		main();
+	printf ("\n TEKAN ENTER UNTUK KEMBALI KE MENU ");
+    getch();
+	goto back;
 	}
-	else
-	{
-		printf("\nInput salah, tekan ENTER untuk kembali ke menu  ");
-		getch();
-		goto back;
-	}
-}
+
 
 
