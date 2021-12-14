@@ -30,12 +30,12 @@ void main()
 {
  system("cls");
     char namabarang[100], tujuan[100], kodebarang[50];
-    int no, n, jumlahbarang, hargabarang, totalharga, pilih;
+    int no, n, jumlahbarang, hargabarang, pilih;
      do
- 	{
- 	menu:
- 	time ( &rawtime );
-	timeinfo = localtime ( &rawtime );
+    {
+    menu:
+    time ( &rawtime );
+    timeinfo = localtime ( &rawtime );
     system("cls");
     system("color 03");
     printf ("===============================  PROGRAM DISTIRBUSI  FROZEN FOOD   ===========================\n");
@@ -205,17 +205,19 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
 
 void displaymenu()
 {
-int no,  kode, menu;
-back:
-system("cls");
 
 	printf ("-------------------------------------------------------------------------------------------------------\n");
 	printf ("=================================      DAFTAR FROZEN FOOD DAN HARGA     ===============================\n");
 	printf ("-------------------------------------------------------------------------------------------------------\n\n");
 	printf ("\n1. Bakso Ayam / Ikan / Sapi \n");
+	printf ("\n Kode Bakso Ayam: RTC1A);
+	printf ("\n Kode Bakso Ikan: RTC1I);
+	printf ("\n Kode Bakso Sapi: RTC1S\n);
 	printf ("250 gr = Rp 20.000 \n");
 	printf ("500 gr = Rp 35.000 \n");
 	printf ("\n2. Nugget Ayam / Ikan \n"); 
+	printf ("\n Kode Nugget Ayam: RTC2A);
+	printf ("\n Kode Nugget Ikan: RTC2I\n);
 	printf ("250 gr = Rp 25.000 \n");
 	printf ("500 gr = Rp 45.000 \n");			   	
 	printf ("\n3. Dumpling Ayam / Keju \n");   
@@ -232,9 +234,9 @@ system("cls");
 	printf ("1000 gr = Rp 38.000\n");	 	
 			
 	printf ("\n TEKAN ENTER UNTUK KEMBALI KE MENU ");
-    getch();
-	goto back;
-	}
+        getch();
+	main();
+}
 
 
 
