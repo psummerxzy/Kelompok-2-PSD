@@ -77,12 +77,12 @@ void main()
    gets(tujuan);
    printf ("6. Kode Frozen Food   : ");
    fflush(stdin);
-   gets  (kodebarang);
+   gets(kodebarang);
     fflush(stdin);  
    TambahPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, kodebarang);
             printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
             getch();
-   break;
+     break;
         case 3 :
             if(head == NULL)
    {
