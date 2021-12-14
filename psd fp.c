@@ -207,7 +207,7 @@ void displaymenu()
 {
 
 	printf ("-------------------------------------------------------------------------------------------------------\n");
-	printf ("=================================      DAFTAR FROZEN FOOD DAN HARGA     ===============================\n");
+	printf ("=================================      DAFTAR FROZEN FOOD, KODE, DAN HARGA     ===============================\n");
 	printf ("-------------------------------------------------------------------------------------------------------\n\n");
 	printf ("\n1. Bakso Ayam / Ikan / Sapi \n");
 	printf ("\n Kode Bakso Ayam: RTC1A);
@@ -220,16 +220,22 @@ void displaymenu()
 	printf ("\n Kode Nugget Ikan: RTC2I\n);
 	printf ("250 gr = Rp 25.000 \n");
 	printf ("500 gr = Rp 45.000 \n");			   	
-	printf ("\n3. Dumpling Ayam / Keju \n");   
+	printf ("\n3. Dumpling Ayam / Keju \n"); 
+	printf ("\n Kode Dumpling Ayam: RTC3A);
+	printf ("\n Kode Dumpling Keju: RTC3K\n);
 	printf ("250 gr = Rp 22.000 \n");
 	printf ("500 gr = Rp 38.000 \n");	
-	printf ("\n4. Sosis  \n");    
+	printf ("\n4. Sosis Ayam / Sapi \n");
+	printf ("\n Kode Sosis Ayam: RTC4A);
+	printf ("\n Kode Sosis Sapi: RTC4S\n);
 	printf ("250 gr = Rp 20.000\n");
 	printf ("500 gr = Rp 35.000 \n");
-	printf ("\n5. Siomay \n");	 
+	printf ("\n5. Siomay Ayam/Udang \n");
+	printf ("\n Kode Siomay Ayam : RTC5A);
+	printf ("\n Kode Siomay Udang: RTC5U\n);
 	printf ("250 gr = Rp 17.000\n");
 	printf ("500 gr = Rp 30.000\n");
-	printf ("\n6. Kentang \n");
+	printf ("\n6. Kentang Goreng \n");
 	printf ("500 gr  = Rp 22.000\n"); 
 	printf ("1000 gr = Rp 38.000\n");	 	
 			
