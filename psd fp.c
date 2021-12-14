@@ -83,7 +83,7 @@ void main()
             if(head == NULL)
    {
     printf ("\n");
-    printf ("*******Maaf, belum ada data distribusi frozen food!!*******\n");
+    printf ("******* Maaf, belum ada data distribusi frozen food!!*******\n");
     printf ("\n************  Tekan enter untuk melanjutkan  ************\n");
    }
    else
@@ -97,7 +97,7 @@ void main()
    if(head == NULL)
    {
     printf ("\n");
-    printf ("*******Maaf, belum ada data distribusi frozen food!!*******\n");
+    printf ("******* Maaf, belum ada data distribusi frozen food!!*******\n");
     printf ("\n************  Tekan enter untuk melanjutkan  ************\n");
    }
    else
@@ -108,7 +108,7 @@ void main()
    getch();
             break; 
         case 5 :
-   printf ("\n=====================  PENDISTRIBUSIAN BERAS PT. ALAM SURYA TELAH SELESAI  ====================\n");
+   printf ("\n=====================  PENDISTRIBUSIAN FROZEN FOOD PT. ANUGRAH FROZEN TELAH SELESAI  ====================\n");
    exit(1);
    break;
   default :
@@ -130,7 +130,7 @@ void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang,
     ptr->jumlahbarang = jumlahbarang;
     ptr->hargabarang = hargabarang;
     strcpy (ptr->tujuan, tujuan);
-    strcpy(ptr->kodebarang, kodebarang);
+    strcpy (ptr->kodebarang, kodebarang);
     ptr->next = NULL;
     ptr->prev = NULL;
 
@@ -171,23 +171,29 @@ void LihatPesanan()
 
 void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], char kodebarang[])
 {
- struct distribute *temp, *p;
-    if (head-> no == no)
-    {                               
+	FILE *pesanan;
+ 	struct distribute *temp, *p;                             
         temp = head;
         head = head->next;
         printf ("\n");
-        printf ("Pesanan dengan data sebagai berikut berhasil didistribusikan!! :)\n");
-  printf ("1. Nomor Pesanan      : %d\n" , no);
-  printf ("2. Nama Frozen Food   : %s\n" , namabarang);
-  printf ("3. Jumlah Frozen Food : %d pcs\n" , jumlahbarang);
-  printf ("4. Harga Froxen Food  : Rp.%d\n" , hargabarang);
-  printf ("5. Tujuan Distribusi  : %s\n" , tujuan);
-  printf ("6. Kode Frozen Food   : %d\n" , kodebarang);
-  printf ("\n");
+        printf ("Pesanan dengan data sebagai berikut berhasil didistribusikan!! \n");
+  	printf ("1. Nomor Pesanan      : %d\n" , temp->no);
+  	printf ("2. Nama Frozen Food   : %s\n" , temp->namabarang);
+  	printf ("3. Jumlah Frozen Food : %d pcs\n" , temp->jumlahbarang);
+  	printf ("4. Harga Frozen Food  : Rp.%d\n" , temp->hargabarang);
+  	printf ("5. Tujuan Distribusi  : %s\n" , temp->tujuan);
+  	printf ("6. Kode Frozen Food   : %s\n" , temp->kodebarang);
+  	printf ("\n");
+	pesanan = fopen("HistoryPesanan.txt" , "a");
+	fprintf (pesanan, "------------------------------------------\n");
+	fprintf (pesanan, "1. Nomor Pesanan      : %d\n" , no);
+	fprintf (pesanan, "2. Nama Frozen Food   : %s\n" , namabarang);
+	fprintf (pesanan, "3. Jumlah Frozen Food : %d pcs\n" , jumlahbarang);
+	fprintf (pesanan, "4. Harga Frozen Food  : Rp.%d\n" , hargabarang);
+	fprintf (pesanan, "5. Tujuan Distribusi  : %s\n" , tujuan);
+	fprintf (pesanan, "6. Kode Frozen Food   : %s\n" , kodebarang);
+	fprintf (pesanan, "\n");
         free(temp);
-    }
-    
 }
 
 void displaymenu()
