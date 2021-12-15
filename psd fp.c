@@ -126,7 +126,7 @@ void main()
     }while(pilih != 5);
 }
 
-void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], char kodebarang[], totalharga)
+void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], char kodebarang[], int totalharga)
 {
     struct distribute *ptr,  *temp = head;
     ptr = (struct distribute *)malloc(sizeof(struct distribute));
