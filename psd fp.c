@@ -11,7 +11,7 @@ struct tm * timeinfo;
 struct distribute
 {
     char namabarang[100], tujuan[100], kodebarang[50];
-    int no, jumlahbarang, hargabarang;
+    int no, jumlahbarang, hargabarang, totalharga;
     struct distribute *prev;
     struct distribute *next;
 };
@@ -19,9 +19,9 @@ struct distribute
 struct distribute *head = NULL;
 
  
-void TambahPesanan(int, char [], int, int, char[], char[]);
+void TambahPesanan(int, char [], int, int, char[], char[], int);
 void LihatPesanan();
-void KirimPesanan(int, char [], int , int , char [], char[]);
+void KirimPesanan(int, char [], int , int , char [], char[], int);
 void displaymenu();
 void main();
 
@@ -30,7 +30,7 @@ void main()
 {
  system("cls");
     char namabarang[100], tujuan[100], kodebarang[50];
-    int no, n, jumlahbarang, hargabarang, pilih;
+    int no, n, jumlahbarang, hargabarang, totalharga, pilih;
      do
     {
     menu:
@@ -78,8 +78,9 @@ void main()
    printf ("6. Kode Frozen Food   : ");
    fflush(stdin);
    gets(kodebarang);
-    fflush(stdin);  
-   TambahPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, kodebarang);
+   totalharga = hargabarang *jumlahbarang;
+   printf ("TOTAL HARGA 		  : Rp.%d" , totalharga);
+   TambahPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, kodebarang, totalharga);
             printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
             getch();
      break;
@@ -106,7 +107,7 @@ void main()
    }
    else
    {
-    KirimPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, kodebarang);
+    KirimPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, kodebarang, totalharga);
     printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
    }
    getch();
@@ -125,7 +126,7 @@ void main()
     }while(pilih != 5);
 }
 
-void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], char kodebarang[])
+void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], char kodebarang[], totalharga)
 {
     struct distribute *ptr,  *temp = head;
     ptr = (struct distribute *)malloc(sizeof(struct distribute));
@@ -135,6 +136,7 @@ void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang,
     ptr->hargabarang = hargabarang;
     strcpy (ptr->tujuan, tujuan);
     strcpy (ptr->kodebarang, kodebarang);
+    ptr->totalharga = totalharga;
     ptr->next = NULL;
     ptr->prev = NULL;
 
@@ -169,13 +171,14 @@ void LihatPesanan()
   printf ("5. Tujuan Distribusi  : %s\n" , temp->tujuan);
   printf ("6. Kode Frozen Food   : %s\n" , temp->kodebarang);
   printf ("7. Waktu Pembelian    : %s", asctime (timeinfo));
+  printf ("8. Total Harga	 : %d", temp->totalharga);
   printf ("\n");
         temp = temp->next;
  }
     printf ("---------------------------------------------------------------------------------");
 }
 
-void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], char kodebarang[])
+void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], char kodebarang[], int totalharga)
 {
 	
 	FILE *pesanan;
@@ -191,6 +194,7 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
   	printf ("5. Tujuan Distribusi  : %s\n" , temp->tujuan);
   	printf ("6. Kode Frozen Food   : %s\n" , temp->kodebarang);
   	printf ("7. Waktu Pembelian    : %s", asctime (timeinfo));
+	printf ("8. Total Harga	 : %d", temp->totalharga);
   	printf ("\n");
 	pesanan = fopen("HistoryPesanan.txt" , "a");
 	fprintf (pesanan, "------------------------------------------\n");
@@ -201,6 +205,7 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
 	fprintf (pesanan, "5. Tujuan Distribusi  : %s\n" , tujuan);
 	fprintf (pesanan, "6. Kode Frozen Food   : %s\n" , kodebarang);
 	fprintf(pesanan,  "7. Waktu Pembelian    : %s", asctime (timeinfo));
+	fprintf (pesanan, "8. Total Harga	 : %d", totalharga);
 	fprintf (pesanan, "\n");
         free(temp);
 	
