@@ -3,11 +3,11 @@
 #include <string.h>
 #include <conio.h>
 #include <time.h>
- 
- 
+
+
 time_t rawtime;
 struct tm * timeinfo;
- 
+
 struct distribute
 {
     char namabarang[100], tujuan[100], kodebarang[50];
@@ -15,17 +15,17 @@ struct distribute
     struct distribute *prev;
     struct distribute *next;
 };
- 
+
 struct distribute *head = NULL;
- 
+
  
 void TambahPesanan(int, char [], int, int, char[], char[], int);
 void LihatPesanan();
 void KirimPesanan(int, char [], int , int , char [], char[], int);
 void displaymenu();
 void main();
- 
- 
+
+
 void main()
 {
  system("cls");
@@ -41,7 +41,7 @@ void main()
     printf ("===============================  PROGRAM DISTIRBUSI  FROZEN FOOD   ===========================\n");
     printf ("================================  DARI PABRIK PT. ANUGRAH FROZEN  =============================\n");
     printf ("MENU :\n");
- 
+  			
     printf ("1. Daftar produk\n");
     printf ("2. Input Data Pendistribusian\n");
     printf ("3. Tampilkan Data Pendistribusian\n");
@@ -53,15 +53,13 @@ void main()
         {
         case 1:
         	displaymenu();
-        	main();
-		 case 2:
- 
+		main();
+	case 2:
 	system ("cls");
-   displaymenu();
-   puts("");
     printf ("------------------------------------------------------------------------------------------------------\n");
     printf ("========================================     INPUT PESANAN     =======================================\n");
     printf ("------------------------------------------------------------------------------------------------------\n\n");
+   
     printf ("1. Nomor Pesanan      : ");
     scanf  ("%d" , &no);
     fflush(stdin);
@@ -81,22 +79,22 @@ void main()
    fflush(stdin);
    gets(kodebarang);
    totalharga = hargabarang *jumlahbarang;
-   printf ("TOTAL HARGA 		  : Rp.%d" , totalharga);
+   printf ("TOTAL HARGA 		 : Rp.%d" , totalharga);
    TambahPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, kodebarang, totalharga);
-            printf ("\n***  Tekan enter untuk melanjutkan  **\n");
+            printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
             getch();
      break;
         case 3 :
             if(head == NULL)
    {
     printf ("\n");
-    printf ("* Maaf, belum ada data distribusi frozen food!!*\n");
-    printf ("\n***  Tekan enter untuk melanjutkan  ***\n");
+    printf ("********** Maaf, belum ada data distribusi frozen food!!**********\n");
+    printf ("\n************  Tekan enter untuk melanjutkan  ************\n");
    }
    else
    {
     LihatPesanan();
-    printf ("\n***  Tekan enter untuk melanjutkan  **\n");
+    printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
    }
    getch();
             break;
@@ -104,13 +102,13 @@ void main()
    if(head == NULL)
    {
     printf ("\n");
-    printf ("* Maaf, belum ada data distribusi frozen food!!*\n");
-    printf ("\n***  Tekan enter untuk melanjutkan  ***\n");
+    printf ("******* Maaf, belum ada data distribusi frozen food!!*******\n");
+    printf ("\n************  Tekan enter untuk melanjutkan  ************\n");
    }
    else
    {
     KirimPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, kodebarang, totalharga);
-    printf ("\n***  Tekan enter untuk melanjutkan  **\n");
+    printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
    }
    getch();
             break; 
@@ -120,14 +118,14 @@ void main()
    break;
   default :
    printf ("\n");
-   printf ("*  Maaf, pilihan yang anda masukan salah  *\n");
-   printf ("\n***  Tekan enter untuk mengulang  **\n");
+   printf ("**********  Maaf, pilihan yang anda masukan salah  **********\n");
+   printf ("\n************  Tekan enter untuk mengulang  *************\n");
    getch();
    break;
         }
     }while(pilih != 5);
 }
- 
+
 void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], char kodebarang[], int totalharga)
 {
     struct distribute *ptr,  *temp = head;
@@ -139,10 +137,9 @@ void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang,
     strcpy (ptr->tujuan, tujuan);
     strcpy (ptr->kodebarang, kodebarang);
     ptr->totalharga = totalharga;
- 
     ptr->next = NULL;
     ptr->prev = NULL;
- 
+
     if (head == NULL)
     {
         head = ptr;
@@ -153,20 +150,17 @@ void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang,
         temp = temp->next;
   		ptr->prev = temp;
   		temp->next = ptr;
-    } 
+    }
 }
- 
+
 void LihatPesanan()
 {
- 
- 
+
  system("cls");
  struct distribute *temp = head;
- 
- 
- 	printf ("------------------------------------------------------------------------------------------------------\n");
-    printf ("============================================     PESANAN     =========================================\n");
-    printf ("------------------------------------------------------------------------------------------------------\n\n");
+ printf ("------------------------------------------------------------------------------------------------------\n");
+ printf ("============================================     PESANAN     =========================================\n");
+ printf ("------------------------------------------------------------------------------------------------------\n\n");
  
  while (temp!=NULL)
  {
@@ -177,15 +171,16 @@ void LihatPesanan()
   printf ("5. Tujuan Distribusi  : %s\n" , temp->tujuan);
   printf ("6. Kode Frozen Food   : %s\n" , temp->kodebarang);
   printf ("7. Waktu Pembelian    : %s", asctime (timeinfo));
-  printf ("8. Total Harga        : Rp.%d", temp->totalharga);
+  printf ("8. Total Harga	     : Rp. %d", temp->totalharga);
   printf ("\n");
         temp = temp->next;
  }
     printf ("---------------------------------------------------------------------------------");
 }
- 
+
 void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], char kodebarang[], int totalharga)
 {
+	
 	FILE *pesanan;
  	struct distribute *temp, *p;                             
         temp = head;
@@ -199,7 +194,7 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
   	printf ("5. Tujuan Distribusi  : %s\n" , temp->tujuan);
   	printf ("6. Kode Frozen Food   : %s\n" , temp->kodebarang);
   	printf ("7. Waktu Pembelian    : %s", asctime (timeinfo));
-  	printf ("8. Total Harga        : Rp.%d", temp->totalharga);
+	printf ("8. Total Harga	       : Rp. %d", temp->totalharga);
   	printf ("\n");
 	pesanan = fopen("HistoryPesanan.txt" , "a");
 	fprintf (pesanan, "------------------------------------------\n");
@@ -210,16 +205,17 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
 	fprintf (pesanan, "5. Tujuan Distribusi  : %s\n" , tujuan);
 	fprintf (pesanan, "6. Kode Frozen Food   : %s\n" , kodebarang);
 	fprintf(pesanan,  "7. Waktu Pembelian    : %s", asctime (timeinfo));
-	fprintf (pesanan, "8. Total Harga        : Rp.%d", totalharga);
+	fprintf (pesanan, "8. Total Harga	     : Rp. %d", totalharga);
 	fprintf (pesanan, "\n");
         free(temp);
+	
 }
- 
+
 void displaymenu()
 {
- 
+
 	printf ("-------------------------------------------------------------------------------------------------------\n");
-	printf ("=============================      DAFTAR FROZEN FOOD, KODE, DAN HARGA     ============================\n");
+	printf ("=================================      DAFTAR FROZEN FOOD, KODE, DAN HARGA     ===============================\n");
 	printf ("-------------------------------------------------------------------------------------------------------\n\n");
 	printf ("\n1. Bakso Ayam / Ikan / Sapi \n");
 	printf ("Kode Bakso Ayam: RTC1A \n");
@@ -249,7 +245,11 @@ void displaymenu()
 	printf ("500 gr = Rp 30.000\n");
 	printf ("\n6. Kentang Goreng \n");
 	printf ("500 gr  = Rp 22.000\n"); 
-	printf ("1000 gr = Rp 38.000\n");	 		
-	printf ("\n TEKAN ENTER UNTUK LANJUT ");
-    getch();
+	printf ("1000 gr = Rp 38.000\n");
+	printf ("\n7. Tempura Udang \n");
+	printf ("500 gr = Rp 40.000\n");
+	printf ("1000 gr = Rp 75.000\n");
+	printf ("\n TEKAN ENTER UNTUK KEMBALI KE MENU ");
+        getch();
+	
 }
