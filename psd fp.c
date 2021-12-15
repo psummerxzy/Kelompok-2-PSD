@@ -238,7 +238,11 @@ void displaymenu()
 	printf ("500 gr = Rp 30.000\n");
 	printf ("\n6. Kentang Goreng \n");
 	printf ("500 gr  = Rp 22.000\n"); 
-	printf ("1000 gr = Rp 38.000\n");	 		
+	printf ("1000 gr = Rp 38.000\n");
+	printf ("\n7. Tempura Udang \n");
+	printf ("500 gr = Rp 40.000\n");
+	printf ("1000 gr = Rp 75.000\n");
 	printf ("\n TEKAN ENTER UNTUK KEMBALI KE MENU ");
         getch();
+	
 }
