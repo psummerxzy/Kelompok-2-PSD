@@ -79,7 +79,7 @@ void main()
    fflush(stdin);
    gets(kodebarang);
    totalharga = hargabarang *jumlahbarang;
-   printf ("TOTAL HARGA 		  : Rp.%d" , totalharga);
+   printf ("TOTAL HARGA           : Rp.%d" , totalharga);
    TambahPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, kodebarang, totalharga);
             printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
             getch();
@@ -171,7 +171,7 @@ void LihatPesanan()
   printf ("5. Tujuan Distribusi  : %s\n" , temp->tujuan);
   printf ("6. Kode Frozen Food   : %s\n" , temp->kodebarang);
   printf ("7. Waktu Pembelian    : %s", asctime (timeinfo));
-  printf ("8. Total Harga	 : %d", temp->totalharga);
+  printf ("8. Total Harga	  : Rp. %d", temp->totalharga);
   printf ("\n");
         temp = temp->next;
  }
@@ -194,7 +194,7 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
   	printf ("5. Tujuan Distribusi  : %s\n" , temp->tujuan);
   	printf ("6. Kode Frozen Food   : %s\n" , temp->kodebarang);
   	printf ("7. Waktu Pembelian    : %s", asctime (timeinfo));
-	printf ("8. Total Harga	 : %d", temp->totalharga);
+	printf ("8. Total Harga	       : Rp. %d", temp->totalharga);
   	printf ("\n");
 	pesanan = fopen("HistoryPesanan.txt" , "a");
 	fprintf (pesanan, "------------------------------------------\n");
@@ -205,7 +205,7 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
 	fprintf (pesanan, "5. Tujuan Distribusi  : %s\n" , tujuan);
 	fprintf (pesanan, "6. Kode Frozen Food   : %s\n" , kodebarang);
 	fprintf(pesanan,  "7. Waktu Pembelian    : %s", asctime (timeinfo));
-	fprintf (pesanan, "8. Total Harga	 : %d", totalharga);
+	fprintf (pesanan, "8. Total Harga	  : Rp. %d", totalharga);
 	fprintf (pesanan, "\n");
         free(temp);
 	
