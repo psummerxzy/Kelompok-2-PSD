@@ -87,7 +87,7 @@ void main()
             if(head == NULL)
    {
     printf ("\n");
-    printf ("******* Maaf, belum ada data distribusi frozen food!!*******\n");
+    printf ("********** Maaf, belum ada data distribusi frozen food!!**********\n");
     printf ("\n************  Tekan enter untuk melanjutkan  ************\n");
    }
    else
@@ -117,7 +117,7 @@ void main()
    break;
   default :
    printf ("\n");
-   printf ("*******  Maaf, pilihan yang anda masukan salah  *******\n");
+   printf ("**********  Maaf, pilihan yang anda masukan salah  **********\n");
    printf ("\n************  Tekan enter untuk mengulang  *************\n");
    getch();
    break;
@@ -177,6 +177,7 @@ void LihatPesanan()
 
 void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, char tujuan[], char kodebarang[])
 {
+	
 	FILE *pesanan;
  	struct distribute *temp, *p;                             
         temp = head;
@@ -202,6 +203,7 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
 	fprintf(pesanan,  "7. Waktu Pembelian    : %s", asctime (timeinfo));
 	fprintf (pesanan, "\n");
         free(temp);
+	
 }
 
 void displaymenu()
