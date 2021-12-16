@@ -72,14 +72,14 @@ void main()
    fflush(stdin);
    scanf  ("%d" , &hargabarang);
    fflush(stdin);
-   printf ("5. Tujuan Distibusi   : ");
+   printf ("5. Tujuan Distribusi   : ");
    fflush(stdin);
    gets(tujuan);
    printf ("6. Kode Frozen Food   : ");
    fflush(stdin);
    gets(kodebarang);
    totalharga = hargabarang *jumlahbarang;
-   printf ("TOTAL HARGA           : Rp.%d" , totalharga);
+   printf ("TOTAL HARGA            : Rp.%d" , totalharga);
    TambahPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, kodebarang, totalharga);
             printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
             getch();
@@ -108,7 +108,7 @@ void main()
    else
    {
     KirimPesanan(no, namabarang, jumlahbarang, hargabarang, tujuan, kodebarang, totalharga);
-    printf ("\n************  Tekan enter untuk melanjutkan  *************\n");
+    printf ("\n*************  Tekan enter untuk melanjutkan  **************\n");
    }
    getch();
             break; 
@@ -133,7 +133,7 @@ void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang,
     ptr->no = no;
     strcpy (ptr->namabarang , namabarang);
     ptr->jumlahbarang = jumlahbarang;
-    ptr->hargabarang = hargabarang;
+    ptr->hargabarang  = hargabarang;
     strcpy (ptr->tujuan, tujuan);
     strcpy (ptr->kodebarang, kodebarang);
     ptr->totalharga = totalharga;
@@ -148,7 +148,7 @@ void TambahPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang,
     {
         while (temp->next != NULL)
         temp = temp->next;
-  		ptr->prev = temp;
+  		ptr->prev  = temp;
   		temp->next = ptr;
     }
 }
@@ -198,13 +198,13 @@ void KirimPesanan(int no, char namabarang[], int jumlahbarang, int hargabarang, 
   	printf ("\n");
 	pesanan = fopen("HistoryPesanan.txt" , "a");
 	fprintf (pesanan, "------------------------------------------\n");
-	fprintf (pesanan, "1. Nomor Pesanan      : %d\n" , no);
-	fprintf (pesanan, "2. Nama Frozen Food   : %s\n" , namabarang);
-	fprintf (pesanan, "3. Jumlah Frozen Food : %d pcs\n" , jumlahbarang);
-	fprintf (pesanan, "4. Harga Frozen Food  : Rp.%d\n" , hargabarang);
-	fprintf (pesanan, "5. Tujuan Distribusi  : %s\n" , tujuan);
-	fprintf (pesanan, "6. Kode Frozen Food   : %s\n" , kodebarang);
-	fprintf(pesanan,  "7. Waktu Pembelian    : %s", asctime (timeinfo));
+	fprintf (pesanan, "1. Nomor Pesanan       : %d\n" , no);
+	fprintf (pesanan, "2. Nama Frozen Food    : %s\n" , namabarang);
+	fprintf (pesanan, "3. Jumlah Frozen Food  : %d pcs\n" , jumlahbarang);
+	fprintf (pesanan, "4. Harga Frozen Food   : Rp.%d\n" , hargabarang);
+	fprintf (pesanan, "5. Tujuan Distribusi   : %s\n" , tujuan);
+	fprintf (pesanan, "6. Kode Frozen Food    : %s\n" , kodebarang);
+	fprintf (pesanan,  "7. Waktu Pembelian     : %s", asctime (timeinfo));
 	fprintf (pesanan, "8. Total Harga	  : Rp. %d", totalharga);
 	fprintf (pesanan, "\n");
         free(temp);
